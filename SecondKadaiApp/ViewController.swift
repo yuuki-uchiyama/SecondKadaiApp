@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var YourName: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,5 +23,14 @@ class ViewController: UIViewController {
     }
 
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let helloViewController:HelloViewController = segue.destination as! HelloViewController
+        
+        helloViewController.name = YourName.text
+        
+        //遷移する際に起動する機能
+    }
+    @IBAction func unwind(_ segue: UIStoryboardSegue){}
+    //画面を戻す機能
 }
 
